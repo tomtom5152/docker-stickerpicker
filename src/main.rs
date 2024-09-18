@@ -87,7 +87,7 @@ struct Index<'a> {
 
 async fn get_bucket_index(profile: &str) -> Result<Index, S3Error> {
 	let list = BUCKET
-		.list(format!("/{profile}/"), Some("/".to_owned()))
+		.list(format!("{profile}/"), Some("/".to_owned()))
 		.await?;
 
 	let mut packs = list
